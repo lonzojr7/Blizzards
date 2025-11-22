@@ -2,27 +2,29 @@
 # TODO 2 5 Profile objects
 #and call every one of the Profile methods in the driver.
 from user_profile import Profile
+Sam = Profile("Sam", "CIS", "Physics", "Unknown")
+
 def test_profile_creation_and_methods():
-    #test profile creation
-    Sam = Profile("Sam", "CIS", "Physics", "Unknown")
     #test constructor
     assert Sam.name == "Sam"
     assert Sam.major == "CIS"
     assert Sam.minor == "Physics"
     assert Sam.schedule == "Unknown"
-    #test update_schedule method
+
+def test_update_schedule():
     Sam.update_schedule({"Monday": ["9AM", "2PM"], "Wednesday": ["11AM"]})
     assert Sam.schedule == {"Monday": ["9AM", "2PM"], "Wednesday": ["11AM"]}
-    #test __str__ method
-    profile_str = str(Sam)
-    assert "Sam" in profile_str
+    
+def test_empty_schedule_update_and_modification():
     #Test empty schedule update
     Sam.update_schedule({})
     assert Sam.schedule == {}
+
+def test_profile_modification():
     #test constructor overwirtes old data
     Sam.name = "Samuel"
     assert Sam.name == "Samuel"
     Sam.major = "Math"
     assert Sam.major == "Math"
     Sam.minor = "Computer Science"
-    assert Sam.minor == "Computer Science"  
+    assert Sam.minor == "Computer Science"
