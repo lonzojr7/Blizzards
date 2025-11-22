@@ -23,6 +23,7 @@ def main():
     cards = generator.generate(datetime(2025, 11, 18), datetime(2025, 11, 22))
 
     print(cards)
+    
 
 if __name__ == "__main__":
     main()
