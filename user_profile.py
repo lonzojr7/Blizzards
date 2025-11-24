@@ -14,6 +14,7 @@ class Profile:
 
     def __repr__(self):
         return f"Name: {self.name } \nMajor: {self.major} | Minor: {self.minor} \nSchedule: {self.schedule}"
+    
     # Create a remove_event method that removes all events in 
     # the schedule that have the same what attribute as the given event.
     def remove_event(self, event: Event):
