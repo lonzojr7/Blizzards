@@ -14,3 +14,8 @@ class Profile:
 
     def __repr__(self):
         return f"Name: {self.name } \nMajor: {self.major} | Minor: {self.minor} \nSchedule: {self.schedule}"
+    
+    def remove_event(self, event: Event):
+        before = len(self.schedule)
+        self.schedule = [e for e in self.schedule if e.what != event.what]
+        return len(self.schedule) < before 
