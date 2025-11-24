@@ -1,7 +1,7 @@
 #TOdo 1 test user_profile.py creationCreate 
 # TODO 2 5 Profile objects
 #and call every one of the Profile methods in the driver.
-from user_profile import Profile
+from Blizzards.user_profile import Profile
 Sam = Profile("Sam", "CIS", "Physics", "Unknown")
 
 def test_profile_creation_and_methods():
