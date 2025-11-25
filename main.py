@@ -5,24 +5,22 @@ from invite_logic import InviteLogic
 from auto_cancel import AutoCancelJob
 from flashcards import FlashcardGenerator
 
+def print_welcome_banner():
+    banner = r"""
+    ================================================
+    __        __   _                            _         
+    \ \      / /__| | ___ ___  _ __ ___   ___  | |   
+     \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ |_|   
+      \ V  V /  __/ | (_| (_) | | | | | |  __/  _ 
+       \_/\_/ \___|_|\___\___/|_| |_| |_|\___| |_|
+    ================================================
+    """
+    print(banner)
+
 def main():
-    Alex = Profile("Alex", "CIS", "Math", "Unknown")
-    Alex.update_schedule({"Tuesday": ["10AM", "3PM"], "Thursday": ["1PM"]})
-    print("Profile created:")
-    print(Alex)
+    
 
-    session = StudySession(proposer=Alex, time="Mon 10am", place="Library", topic="Algorithms")
-    print("\nSession proposed:", session.topic, "at", session.place)
 
-    syllabus = [
-    {"date": datetime(2025, 11, 18), "flashcards": ["Define sorting", "Explain bubble sort"]},
-    {"date": datetime(2025, 11, 20), "flashcards": ["Graph basics", "DFS vs BFS"]}
-]
-
-    generator = FlashcardGenerator(syllabus)
-    cards = generator.generate(datetime(2025, 11, 18), datetime(2025, 11, 22))
-
-    print(cards)
 
 if __name__ == "__main__":
     main()
