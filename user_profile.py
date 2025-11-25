@@ -14,3 +14,27 @@ class Profile:
 
     def __repr__(self):
         return f"Name: {self.name } \nMajor: {self.major} | Minor: {self.minor} \nSchedule: {self.schedule}"
+    
+    # Create a remove_event method that removes all events in 
+    # the schedule that have the same what attribute as the given event.
+    def remove_event(self, event: Event):
+        before = len(self.schedule)
+        self.schedule = [e for e in self.schedule if e.what != event.what]
+        return len(self.schedule) < before
+    
+    # Create an output_events method that outputs the event in a given Profile object.
+    def output_events(self, current_date: datetime):
+        output = []
+
+        for e in self.schedule:
+            if e.when.date() < current_date.date():
+                prefix = "LATE "
+            elif e.when.date() == current_date.date():
+                prefix = "NOW "
+            else:
+                prefix = ""
+
+            formatted_time = e.when.strftime("%m/%d/%Y at %I:%M %p")
+            output.append(f"{prefix}{e.what} at {formatted_time}")
+
+        return output 

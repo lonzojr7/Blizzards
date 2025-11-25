@@ -1,7 +1,8 @@
 #Implement InviteLogic Class (inherits from StudySession)
 #Additional attribute: accept/decline
 #Methods: accept_invite(), decline_invite()
-from study_session import StudySession
+from Blizzards.study_session import StudySession
+
 
 
 class InviteLogic(StudySession):
