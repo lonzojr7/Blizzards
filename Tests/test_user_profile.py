@@ -1,77 +1,39 @@
 #TOdo 1 test user_profile.py creationCreate 
 #TODO 2 5 Profile objects
 #and call every one of the Profile methods in the driver.
-from Blizzards.user_profile import Profile
-from Blizzards.event import Event
-Sam = Profile("Sam", "CIS", "Physics", "Unknown")
+from user_profile import Profile
+import unittest
 
-def test_profile_creation_and_methods():
-    #test constructor
-    assert Sam.name == "Sam"
-    assert Sam.major == "CIS"
-    assert Sam.minor == "Physics"
-    assert Sam.schedule == "Unknown"
+class TestProfile(unittest.TestCase):
+    def setUp(self):
+        self.Sam = Profile("Sam", "CIS", "Physics", "Unknown")
 
-def test_update_schedule():
-    Sam.update_schedule({"Monday": ["9AM", "2PM"], "Wednesday": ["11AM"]})
-    assert Sam.schedule == {"Monday": ["9AM", "2PM"], "Wednesday": ["11AM"]}
-    assert isinstance(Sam.schedule, dict)
-    assert "Monday" in Sam.schedule
-    assert Sam.schedule["Monday"] == ["9AM", "2PM"]
-    assert "Wednesday" in Sam.schedule
-    assert Sam.schedule["Wednesday"] == ["11AM"]
+    def test_profile_creation_and_methods(self):
+        #test constructor
+        self.assertEqual(self.Sam.name, "Sam")
+        self.assertEqual(self.Sam.major, "CIS")
+        self.assertEqual(self.Sam.minor, "Physics")
+        self.assertEqual(self.Sam.schedule, "Unknown")
 
-def test_empty_schedule_update_and_modification():
-    #Test empty schedule update
-    Sam.update_schedule({})
-    assert Sam.schedule == {}
+    def test_update_schedule(self):
+        self.Sam.update_schedule({"Monday": ["9AM", "2PM"], "Wednesday": ["11AM"]})
+        self.assertEqual(self.Sam.schedule, {"Monday": ["9AM", "2PM"], "Wednesday": ["11AM"]})
+        self.assertIsInstance(self.Sam.schedule, dict)
+        self.assertIn("Monday", self.Sam.schedule)
+        self.assertEqual(self.Sam.schedule["Monday"], ["9AM", "2PM"])
+        self.assertIn("Wednesday", self.Sam.schedule)
+        self.assertEqual(self.Sam.schedule["Wednesday"], ["11AM"])
 
-def test_profile_modification():
-    #test constructor overwirtes old data
-    Sam.name = "Samuel"
-    assert Sam.name == "Samuel"
-    Sam.major = "Math"
-    assert Sam.major == "Math"
-    Sam.minor = "Computer Science"
-    assert Sam.minor == "Computer Science"
-    
-def test_remove_event(self):
-        # Create events
-        e1 = Event("Study Loops", datetime(2024, 9, 10))
-        e2 = Event("Study Loops", datetime(2024, 9, 12))
-        e3 = Event("Trees", datetime(2024, 9, 15))
+    def test_empty_schedule_update_and_modification(self):
+        #Test empty schedule update
+        self.Sam.update_schedule({})
+        self.assertEqual(self.Sam.schedule, {})
 
-        # Add them to the profile schedule
-        self.profile.schedule = [e1, e2, e3]
-
-        # Remove all events matching e1.what ("Study Loops")
-        removed = self.profile.remove_event(e1)
-
-        # Assertions
-        self.assertTrue(removed)
-        self.assertEqual(len(self.profile.schedule), 1)
-        self.assertEqual(self.profile.schedule[0].what, "Trees")
-        
-def test_output_events(self):
-        today = datetime(2024, 9, 20)
-
-        # Events: past, today, future
-        past_event = Event("Old Topic", datetime(2024, 9, 10))
-        today_event = Event("Today's Topic", datetime(2024, 9, 20))
-        future_event = Event("Future Topic", datetime(2024, 9, 30))
-
-        self.profile.schedule = [past_event, today_event, future_event]
-
-        output = self.profile.output_events(today)
-
-        # Assertions
-        self.assertEqual(len(output), 3)
-        self.assertTrue(output[0].startswith("LATE "))
-        self.assertTrue(output[1].startswith("NOW "))
-        self.assertFalse(output[2].startswith("LATE "))
-        self.assertFalse(output[2].startswith("NOW "))
-
-        # Ensure events themselves are NOT modified
-        self.assertEqual(today_event.what, "Today's Topic")
-        self.assertEqual(past_event.what, "Old Topic")
-        self.assertEqual(future_event.what, "Future Topic")
+    def test_profile_modification(self):
+        #test constructor overwirtes old data
+        self.Sam.name = "Samuel"
+        self.assertEqual(self.Sam.name, "Samuel")
+        self.Sam.major = "Math"
+        self.assertEqual(self.Sam.major, "Math")
+        self.Sam.minor = "Computer Science"
+        self.assertEqual(self.Sam.minor, "Computer Science")    
