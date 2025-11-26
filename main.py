@@ -5,6 +5,8 @@ from invite_logic import InviteLogic
 from auto_cancel import AutoCancelJob
 from flashcards import FlashcardGenerator
 
+import random
+
 def print_welcome_banner():
     banner = r"""
     ================================================
