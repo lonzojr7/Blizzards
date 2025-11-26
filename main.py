@@ -60,6 +60,7 @@ def main():
     places = ["Library", "Cafeteria", "Admin", "Zoom"]
     for i in range(33):
         session = StudySession(proposer=f"User{i}", time=random.choice(times), place=random.choice(places),topic=random.choice(topics), status="pending")
+        sessions.append(session)
 
 
 
