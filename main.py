@@ -51,6 +51,13 @@ def main():
     auto_cancel = AutoCancelJob(e1, 2)  # Auto-cancel if not confirmed in 1 hour
     print("\nAutoCancelJob created for event:", auto_cancel.event.name)
     
+    # Create 33 study sessions
+    for i in range(33):
+        session = StudySession(proposer=f"User{i}", time=random.choice(times), place=random.choice(places),topic=random.choice(topics), status="pending")
+
+
+
+
 
 
 
