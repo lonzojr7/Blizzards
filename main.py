@@ -48,18 +48,19 @@ def generate_study_sessions():
         time = base_time + timedelta(days=random.randint(0, 10), hours=random.randint(0, 8))
         topic = random.choice(topics)
         place = random.choice(places)
-        event = Event(f"{topic} at {place}", time)
-        study_sessions.append(event)
+        session = StudySession(f"User{i}", time, place, topic, "pending")
+        study_sessions.append(session)
 
-    for event in study_sessions[:10]:
+    for session in study_sessions[:10]:
+        event = Event(session.topic, session.time)
         event.add_event(profile1)
 
-    for event in study_sessions[10:20]:
+    for session in study_sessions[10:20]:
+        event = Event(session.topic, session.time)
         event.add_event(profile2)
 
-    for event in study_sessions[20:]:
-        event.add_event(profile1)
-        event.add_event(profile2)
+    for session in study_sessions[20:]:
+        session.invite(profile1, profile2)
 
     # Print schedules for verification
     print(f"\nProfile 1 Schedule ({profile1.first_name} {profile1.last_name}):")
@@ -139,3 +140,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    generate_study_sessions()
