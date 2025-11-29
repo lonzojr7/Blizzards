@@ -69,6 +69,19 @@ class TestProfile(unittest.TestCase):
         profile = Profile(4, "michael", "brown", "ce")
         self.assertEqual(profile.first_name, "Michael")
         self.assertEqual(profile.last_name, "Brown")
+        
+    def test_sort_study_sessions(self):
+        p = Profile("Lonzo", "CIS", "Math")
+
+        now = datetime.now()
+        s1 = StudySession(p, now + timedelta(hours=5), "Library", "Trees")
+        s2 = StudySession(p, now + timedelta(hours=1), "STEM", "Loops")
+        s3 = StudySession(p, now + timedelta(hours=3), "Dorm", "Graphs")
+
+        p.schedule = [s1, s2, s3]
+
+        sorted_sessions = p.sort_study_sessions()
+        self.assertEqual(sorted_sessions, [s2, s3, s1])
 
 if __name__ == '__main__':
     unittest.main()
