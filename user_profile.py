@@ -128,10 +128,6 @@ class Profile:
     
     @staticmethod
     def count_availability_by_hour(profiles):
-        """
-        Returns a dictionary {hour: count}.
-        Uses only simple loops and basic dict operations.
-        """
         hour_counts = {}
 
         for profile in profiles:
@@ -165,4 +161,10 @@ class Profile:
                 best_value = count
 
         return best_hour
+    
+    def has_conflict(self, new_session):
+        for item in self.schedule:
+            if item.when == new_session.when:
+                return True
+        return False
 
