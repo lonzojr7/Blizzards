@@ -146,4 +146,23 @@ class Profile:
                 hour_counts[hour] += 1
 
         return hour_counts
+    
+    @staticmethod
+    def best_hour(hour_dict):
+        if len(hour_dict) == 0:
+            return None
+
+        # Start with the first hour in the dictionary
+        best_hour = None
+        best_value = -1
+
+        for hour in hour_dict:
+            count = hour_dict[hour]
+
+            # If count is higher OR same count but earlier hour
+            if count > best_value or (count == best_value and (best_hour is None or hour < best_hour)):
+                best_hour = hour
+                best_value = count
+
+        return best_hour
 
