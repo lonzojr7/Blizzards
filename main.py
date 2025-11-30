@@ -72,7 +72,7 @@ def generate_study_sessions():
         print(f"- {e}")
 
 def main():
-    print (print_welcome_banner())
+    print_welcome_banner()
 
 
 
