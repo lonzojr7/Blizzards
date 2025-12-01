@@ -132,6 +132,7 @@ def main():
     session1 = StudySession(proposer=profileA, time="3PM", place="Library", topic="Sorting Algorithms")
     session1.invite(profileA, profileB )
 
+    #Create 111 student profiles and output student(s) with the longest schedule
 
 
 
