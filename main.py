@@ -86,6 +86,11 @@ def generate_student_profiles():
             student_profiles.append(profile)
 
 def find_longest_schedules(profiles):
+    max_length = max(len(profile.schedule) for profile in profiles)
+    longest_schedules = [profile for profile in profiles if len(profile.schedule) == max_length]
+    print(f"\nStudent(s) with the longest schedule ({max_length} events):")
+    for profile in longest_schedules:
+        print(f"- {profile.first_name} {profile.last_name} (ID: {profile.id})")
 
 def main():
     print_welcome_banner()
