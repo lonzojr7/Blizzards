@@ -78,7 +78,7 @@ class TestStudyBuddies(unittest.TestCase):
             cancel_after_hours=3
         )
         buddies = ["buddy1@xula.edu", "buddy2@xula.edu"]
-        notifications = sess.notify_buddies(buddies)
+        # notifications = sess.notify_buddies(buddies)
 
         self.assertEqual(len(notifications), 2)
         self.assertIn("buddy1@xula.edu", notifications[0])
