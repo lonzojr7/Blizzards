@@ -80,7 +80,7 @@ def main():
     #Testing User_profile class
     #Create 5 profiles and call their methods
     p1 = Profile(901, "Sam", "Jones", "CIS")
-    p1.update_schedule({"Monday": ["9AM", "2PM"], "Wednesday":["11AM"]})
+    # p1.update_schedule({"Monday": ["9AM", "2PM"], "Wednesday":["11AM"]})
     
     p2 = Profile(902, "Jamie", "Williams", "CS")
     p3 = Profile(903, "Taylor", "Ibrahim", "CS")
@@ -90,8 +90,8 @@ def main():
     for profile in profiles:
         if profile.major == "Art":
             profile.update_schedule({"Tuesday": ["1PM", "3PM"]})
-        else:
-            profile.update_schedule({"Friday": ["10AM"]})
+        # else:
+            # profile.update_schedule({"Friday": ["10AM"]})
         print(profile)
         print("Updated schedule:", profile.schedule)
         print("-" * 40)
