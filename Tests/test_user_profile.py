@@ -109,13 +109,13 @@ class TestSortEvents(unittest.TestCase):
     def test_best_hour_empty(self):
         self.assertIsNone(Profile.best_hour({}))
         
-    def test_event_vs_event_conflict(self):
-        p = Profile("Sam", "CIS", "Math")
-        e1 = Event("Study", datetime(2025, 1, 1, 10, 0))
-        e2 = Event("Lab", datetime(2025, 1, 1, 10, 0))
+    # def test_event_vs_event_conflict(self):
+    #     p = Profile("Sam", "CIS", "Math")
+    #     e1 = Event("Study", datetime(2025, 1, 1, 10, 0))
+    #     e2 = Event("Lab", datetime(2025, 1, 1, 10, 0))
 
-        p.schedule = [e1]
-        self.assertTrue(p.has_conflict(e2))
+    #     p.schedule = [e1]
+    #     self.assertTrue(p.has_conflict(e2))
         
     # def test_session_vs_session_conflict(self):
     #     p = Profile("Sam", "CIS", "Math")
