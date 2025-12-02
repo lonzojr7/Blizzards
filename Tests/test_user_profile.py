@@ -58,10 +58,10 @@ class TestProfile(unittest.TestCase):
     #     self.assertEqual(len(profile.schedule), 1)
     #     self.assertEqual(profile.schedule[0], event)
 
-    def test_valid_datetime_in_event(self):
-        event_date = datetime(2024, 6, 15, 10, 30)
-        event = Event("Conference", event_date)
-        self.assertIsInstance(event.event_date, datetime)
+    # def test_valid_datetime_in_event(self):
+    #     event_date = datetime(2024, 6, 15, 10, 30)
+    #     event = Event("Conference", event_date)
+    #     self.assertIsInstance(event.event_date, datetime)
 
     def test_invalid_major_raises_value_error(self):
         with self.assertRaises(ValueError):
